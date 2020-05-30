@@ -3,19 +3,27 @@
 
 
 {% block content %}
-<div class="row align-items-center">
-    <div class="col-md-4">
-        <h4>Choose month to display data:</h4>
-    </div>
-    <div class="col-md-2">
-        <select id="monthInput" class="browser-default custom-select m-2">
-        </select>
-    </div>
-    <div class="col-md-2">
-        <input type="number" min="2009" max="2019" class="form-control m-2" id="yearInput" placeholder="Year">
-    </div>
-    <div class="col-md-4">
-        <button class="btn btn-success w-100" onclick="get_data_page()">Submit</button>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <h4 class="pt-2">Choose month to display data:</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <select id="monthInput" class="browser-default custom-select">
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" min="2009" max="2019" class="form-control" id="yearInput" placeholder="Year">
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-success w-100" onclick="get_data_page()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <hr class="my-4">
