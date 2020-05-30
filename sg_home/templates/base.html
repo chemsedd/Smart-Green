@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Include CSS files -->
+    {% include 'sg_home/components/styles.html' %}
+
+
+    {% if title %}
+    <title> Smart Green - {{title}}</title>
+    {% else %}
+    <title> Smart Green</title>
+    {% endif %}
+</head>
+
+<body class="grey lighten-3">
+    <!-- Navbar -->
+    {% block 'navbar' %}
+    {% include 'sg_home/components/navbar.html' %}
+    {% endblock 'navbar' %}
+
+
+    <!-- Page content -->
+    <div class="container-fluid">
+        <!-- Alert Messages -->
+        {% if messages %}
+        <div class="row justify-content-center m-4">
+            {% for message in messages %}
+            <div class="col-md-8">
+                {% if message.tags == 'error' %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+                {% else %}
+                <div class="alert alert-{{message.tags}}">
+                    {{ message }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <!-- Content -->
+        {% block content %}
+        {% endblock content %}
+
+    </div>
+
+
+    <!-- Page footer -->
+    {% include 'sg_home/components/footer.html' %}
+
+    <!-- Include JS files -->
+    {% include 'sg_home/components/scripts.html' %}
+
+
+    <!-- JQuery section -->
+    {%block jquery_section %}
+    {%endblock jquery_section %}
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="row justify-content-center m-4">
+    <div class="col-md-5">
+        <!-- Material form register -->
+        <div class="card">
+            <h3 class="card-header aqua-gradient white-text text-center py-4">
+                <strong>Welcome</strong>
+            </h3>
+
+            <!--Card content-->
+            <div class="card-body px-lg-5 pt-0">
+                <form method="POST" style="color: #757575;">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4 mt-4">
+                            <h2>Sign in</h2>
+                        </legend>
+                        {{ form | crispy}}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-success btn-rounded btn-block my-4 waves-effect z-depth-0"
+                            type="submit">Sign in</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Don't have an account yet? <a class="ml-2" href="{% url 'sg-signup' %}">Sign Up</a>
+                    </small>
+                </div>
+            </div>
+
+        </div>
+        <!-- Material form register -->
+    </div>
+</div>
+{% endblock content %}

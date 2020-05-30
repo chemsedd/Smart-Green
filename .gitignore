@@ -1,0 +1,8 @@
+# ignoring bootstrap
+**/bootstrap/
+
+#ignoring font-awesome
+**/font-awesome/
+
+#
+**/__pycache__/

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row justify-content-center m-4">
+    <div class="col-md-8">
+        <div class="card">
+            <h3 class="card-header aqua-gradient white-text text-center py-4">
+                <strong>Profile</strong>
+            </h3>
+
+            <!--Card content-->
+            <div class="card-body px-lg-5 pt-0 text-center">
+                <div>
+                    <img src="{% static 'sg_users/assets/drone_farm.jpg'%}" class="img-fluid rounded z-depth-2"
+                        alt="{{user.username}}-profile-picture">
+                </div>
+                <h2>@{{user.username}}</h2>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<style>
+</style>
+
+{% endblock content %}

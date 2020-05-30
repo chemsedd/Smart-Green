@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include 'sg_home/components/header.html' %}
+
+<div class="row mt-4 mb-4 align-items-center text-center">
+    <div class="col-5 p-3">
+        <img class="image" src="{% static 'sg_home/Assets/sensors_farming.png' %}" alt="Testing Image">
+    </div>
+    <div class="col-7 p-3 text-left">
+        <h1 class="display-3 text-uppercase lime-text">Lorem Ipsum</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error perferendis deleniti ut consequatur odit
+            cumque
+            ratione sunt possimus omnis, mollitia esse vero repudiandae nulla quaerat. Quas sit optio perferendis
+            dignissimos!</p>
+    </div>
+    <hr>
+    <div class="col-7 p-3 text-right">
+        <h1 class="display-3 text-uppercase lime-text">Lorem Ipsum</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error perferendis deleniti ut consequatur odit
+            cumque
+            ratione sunt possimus omnis, mollitia esse vero repudiandae nulla quaerat. Quas sit optio perferendis
+            dignissimos!</p>
+    </div>
+    <div class="col-5 p-3">
+        <img class="image w-75" src="{% static 'sg_home/Assets/smart-farming.png' %}" alt="Testing Image">
+    </div>
+</div>
+
+<style>
+    .image {
+        width: 100%;
+    }
+</style>
+
+{% endblock content %}

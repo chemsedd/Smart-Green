@@ -1,0 +1,34 @@
+{% extends 'sg_dashboard/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- Breadcrum Navigation -->
+{% comment %}
+{% include 'sg_dashboard/components/breadcrumb.html' %}
+{% endcomment %}
+
+<div id="data-visualization" class="row p-4">
+    <div class="col-md-12 text-center">
+        <h1 class="display-4 lime-text"> Data Visualization (real time) </h1>
+    </div>
+</div>
+<!-- Charts -->
+{% include './components/charts.html' %}
+
+<div id="production" class="row p-4">
+    <div class="col-md-12 text-center">
+        <h1 class="display-4 lime-text"> Production </h1>
+    </div>
+</div>
+
+<!-- Tables -->
+{% include './components/tables.html' %}
+
+
+{% endblock content %}
+
+{% block jquery_section %}
+<script src="{% static 'sg_dashboard/js/load_charts.js' %}"></script>
+{% endblock jquery_section %}

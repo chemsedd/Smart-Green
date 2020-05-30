@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+    <a class="navbar-brand" style="font-weight: bold;" href="{% url 'sg-home'%}">
+        <i class="fas fa-database mr-2 ml-2"></i>
+        Smart-Green
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'sg-home'%}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'sg-dashboard' %}">Dashboard</a>
+            </li>
+            {% endif %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    API
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'sg-dashboard-data' %}" target="_blank">Data JSON</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'sg-about'%}">About</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropDown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <strong>{{ user.username }}</strong>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropDown">
+                    <a class="dropdown-item" href="{% url 'sg-profile' %}">Profile</a>
+                    <a class="dropdown-item" href="{% url 'sg-dashboard' %}">Dashboard</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'sg-signout' %}">
+                        <strong>Sign out</strong>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item avatar mx-2">
+                <img src="https://picsum.photos/40" class="rounded-circle z-depth-0">
+            </li>
+            {% else %}
+            <li class=" nav-item mx-2">
+                <a class="nav-link" href="{% url 'sg-signup' %}">Sign up</a>
+            </li>
+            <li class="nav-item  mx-2 aqua-gradient rounded">
+                <a class="nav-link" href="{% url 'sg-signin' %}">Sign in</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Include CSS files -->
+    {% include 'sg_home/components/styles.html' %}
+
+    {% if title %}
+    <title> Smart Green - {{title}}</title>
+    {% else %}
+    <title> Smart Green</title>
+    {% endif %}
+</head>
+
+<body class="grey lighten-5">
+    <!-- Navbar -->
+    {% block 'navbar' %}
+    {% comment %} {% include 'sg_home/components/navbar.html' %} {% endcomment %}
+    {% endblock 'navbar' %}
+
+
+    <div class="page-wrapper chiller-theme toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper shadow">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="{% url 'sg-home' %}">Smart Green</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="https://picsum.photos/100" alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            <strong>{{ user.username}}</strong>
+                        </span>
+                        <span class="user-role">Administrator</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-search  -->
+                <div class="sidebar-search">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search...">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar-menu -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li>
+                            <a href="{% url 'sg-home' %}">
+                                <i class="fa fa-home"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'sg-profile' %}">
+                                <i class="fa fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-chart-line"></i>
+                                <span>Dashboard</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'sg-dashboard' %}">Data visualization
+                                            <span class="badge badge-pill badge-success">R-T</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'sg-historical-empty' %}">Historical data</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Dashboard 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Land Suitability</span>
+                                <span class="badge badge-pill badge-danger">3</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Products
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Credit cart</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="far fa-gem"></i>
+                                <span>Architecture</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">General</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Panels</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Tables</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Icons</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Forms</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    <span class="badge-sonar"></span>
+                </a>
+                <a href="{% url 'sg-signout' %}">
+                    <i class="fa fa-power-off"></i>
+                </a>
+            </div>
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <!-- Page content -->
+        <main class="page-content">
+            <div class="container-fluid">
+                <!-- Alert Messages -->
+                {% if messages %}
+                <div class="row justify-content-center m-1">
+                    {% for message in messages %}
+                    <div class="col-md-8">
+                        {% if message.tags == 'error' %}
+                        <div class="alert alert-danger">
+                            {{ message }}
+                        </div>
+                        {% else %}
+                        <div class="alert alert-{{message.tags}}">
+                            {{ message }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <!-- Content -->
+                {% block content %}
+                {% endblock content %}
+
+            </div>
+        </main>
+        <!-- page-content" -->
+    </div>
+
+
+    <!-- Include JS files -->
+    {% include 'sg_home/components/scripts.html' %}
+    <!-- JQuery section -->
+    {%block jquery_section %}
+    {%endblock jquery_section %}
+    </div>
+</body>
+
+</html>

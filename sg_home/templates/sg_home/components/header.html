@@ -1,0 +1,24 @@
+{% load static %}
+<div class="row m-4 align-items-center">
+
+    <div class="col-md-5">
+        <img class="img-fluid z-depth-1 rounded-circle"
+            src="https://www.icpdas-europe.com/out/media/image/smart-farming%282%29.jpg" alt="Testing Image">
+    </div>
+    <div class="col-md-7 text-left">
+        <h1 class="display-1 text-weight-bold">
+            <span class="badge aqua-gradient font-weight-bold rounded px-3 py-2">Smart</span> <span
+                class="badge rounded shadow-none dark-text px-1 py-2">Green</span>
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quaerat quia unde similique id! Incidunt
+            itaque debitis blanditiis distinctio dicta amet aperiam. Sed minus sapiente dolorem illo eum eius tempora.
+        </p>
+        <a href="{% url 'sg-dashboard' %}">
+            <button class="btn blue-gradient shadow-none">Dashboard</button>
+        </a>
+
+    </div>
+    <div class="w-100"></div>
+</div>
+{% include 'sg_home/components/features.html' %}
+<hr>

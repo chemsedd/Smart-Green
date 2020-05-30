@@ -1,0 +1,55 @@
+{% extends 'sg_dashboard/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="row align-items-center">
+    <div class="col-md-4">
+        <h4>Choose month to display data:</h4>
+    </div>
+    <div class="col-md-2">
+        <select id="monthInput" class="browser-default custom-select m-2">
+        </select>
+    </div>
+    <div class="col-md-2">
+        <input type="number" min="2009" max="2019" class="form-control m-2" id="yearInput" placeholder="Year">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success w-100" onclick="get_data_page()">Submit</button>
+    </div>
+</div>
+<hr class="my-4">
+<div class="row mt-3 mb-3">
+    <div class="col-md-12 text-left">
+        <h4 class="text-muted"> Historical analysis: </h4>
+        <h1 class="display-3 font-weight-bold lime-text"> {{ month.upper }}, {{ year }} </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dignissimos eaque tempora suscipit sint veritatis, pariatur qui unde nulla neque architecto. Mollitia, deleniti excepturi minus natus voluptatum fugit modi officiis.
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block jquery_section %}
+<script src="{% static 'sg_dashboard/js/load_month_charts.js' %}"></script>
+<script>
+    // Redirects to Month historical data page
+    function get_data_page() {
+        var $_year = $('#yearInput').val();
+        var $_month = $('#monthInput').val();
+        $(location).attr('href', `http://localhost:8000/dashboard/historical/${$_year}/${$_month}/`);
+    }
+
+    // Populating the Month select element
+    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    $.each(months, function () {
+        $('select#monthInput').append($("<option />").val(this).text(this));
+    });
+</script>
+{% endblock jquery_section %}

@@ -1,0 +1,11 @@
+{% load static %}
+<div class="card text-center shadow">
+    <div class="card-body m-2">
+        <h4 class="text-left font-weight-bold">Temperature </h4>
+        <hr>
+        <canvas id="tempCanvas">
+        </canvas>
+    </div>
+</div>
+
+<script src="{% static 'sg_dashboard/js/charts/tempChart.js' %}"></script>
