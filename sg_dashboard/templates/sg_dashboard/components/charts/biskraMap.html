@@ -18,15 +18,15 @@
 
 <script type="text/javascript">
 	var map = new ol.Map({
-	target: 'map',
-	layers: [
-		new ol.layer.Tile({
-		source: new ol.source.OSM()
+		target: 'map',
+		layers: [
+			new ol.layer.Tile({
+				source: new ol.source.OSM()
+			})
+		],
+		view: new ol.View({
+			center: ol.proj.fromLonLat([34.8449, 5.7249]),
+			zoom: 5
 		})
-	],
-	view: new ol.View({
-		center: ol.proj.fromLonLat([34.8449, 5.7249]),
-		zoom: 5
-	})
 	});
 </script>
