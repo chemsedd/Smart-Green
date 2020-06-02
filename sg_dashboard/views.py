@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.shortcuts import render
 
 from .models import Temperature
-
 from .scripts.requestdata import get_data, get_month_records
-from django.contrib.auth.decorators import login_required
 
 
 '''

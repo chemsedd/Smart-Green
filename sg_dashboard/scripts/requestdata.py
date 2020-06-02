@@ -1,7 +1,7 @@
-import pandas as pd
+# import pandas as pd
 from numpy.random import randint
-from sg_dashboard.models import Historical_records, Temperature
 
+from sg_dashboard.models import Historical_records, Temperature
 
 months = ['January', 'February', 'March', 'April', 'May', 'June',
           'July', 'August', 'September', 'October', 'November', 'December']
@@ -32,10 +32,8 @@ def get_month_records(year, month: str):
     return results
 
 
-a = 0.8
 # Get DATA api
-
-
+a = 0.8
 def get_data():
     data = {
         'temperature': {
