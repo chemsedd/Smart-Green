@@ -1,0 +1,52 @@
+{% load static %}
+<div class="card text-center shadow">
+    <div class="card-body m-2">
+        <h4 class="text-left font-weight-bold">Pressure </h4>
+        <hr>
+        <canvas id="pressureCanvas">
+        </canvas>
+    </div>
+</div>
+
+<script>
+/**
+ * Create Pressure chart
+ */
+function createPressureChart(data) {
+
+    var pressureCanvas = document.getElementById('pressureCanvas').getContext('2d');
+
+    return new Chart(pressureCanvas, {
+        type: 'radar',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: 'Pressure',
+                data: data.data,
+                backgroundColor: 'rgba(255, 215, 70, 0.7)',
+                borderWidth: 3,
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: {
+                    ticks: {
+                        min: 0,
+                        max: 100,
+                    },
+                }
+            }
+        }
+    });
+}
+
+
+/**
+ * Update Temperature chart
+ */
+function updateTemperature(value) {
+    charts.tempChart.data.labels.push("Test");
+    console.log(charts.tempChart.data.datasets[0].data.push(value));
+    charts.tempChart.update();
+}
+</script>

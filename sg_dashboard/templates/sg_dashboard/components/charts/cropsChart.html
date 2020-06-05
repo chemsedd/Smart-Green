@@ -8,4 +8,43 @@
     </div>
 </div>
 
-<script src="{% static 'sg_dashboard/js/charts/cropsChart.js' %}"></script>
+<script>
+    /**
+     * Create Crops yeild chart
+     */
+    function createCropsChart(data) {
+
+        var cropsCanvas = document.getElementById('cropsCanvas').getContext('2d');
+
+        return new Chart(cropsCanvas, {
+            type: 'pie',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: data.datalabel,
+                    data: data.data,
+                    borderWidth: 2,
+                    backgroundColor: [
+                        'rgba(224, 53, 53, 0.7)',
+                        'rgba(44, 141, 221, 0.7)',
+                        'rgba(22, 221, 98, 0.7)',
+                        'rgba(233, 239, 47, 0.7)',
+                    ]
+                }]
+            },
+            options: {
+                scales: {}
+            }
+        });
+    }
+
+
+    /**
+     * Update Crops yeild chart
+     */
+    function updateCrops(value) {
+        charts.cropsChart.data.labels.push("Test");
+        console.log(charts.cropsChart.data.datasets[0].data.push(value));
+        charts.cropsChart.update();
+    }
+</script>

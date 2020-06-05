@@ -4,20 +4,23 @@
 
 {% block content %}
 
-<!-- Breadcrum Navigation -->
-{% comment %}
-{% include 'sg_dashboard/components/breadcrumb.html' %}
-{% endcomment %}
-
-<div id="data-visualization" class="row p-4">
-    <div class="col-md-12 text-center">
-        <h1 class="display-4 lime-text"> Data Visualization (real time) </h1>
+<div id="data-visualization" class="row">
+    <div class="col-md-12 text-left">
+        <h1 class="display-4 font-weight-bold lime-text"> Data Visualization (real time) </h1>
     </div>
 </div>
+<hr>
+
+<!-- Plants info -->
+{% include './components/plants_infos.html' %}
+
+
 <!-- Charts -->
 {% include './components/charts.html' %}
 
-<div id="production" class="row p-4">
+
+<!-- Production infos -->
+<div id="production" class="row">
     <div class="col-md-12 text-center">
         <h1 class="display-4 lime-text"> Production </h1>
     </div>
