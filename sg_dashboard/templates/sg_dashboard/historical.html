@@ -26,5 +26,20 @@
 {% endblock content %}
 
 {% block jquery_section %}
+<script>
+    // Redirects to Month historical data page
+    function get_data_page() {
+        var $_year = $('#yearInput').val();
+        var $_month = $('#monthInput').val();
+        $(location).attr('href', `http://localhost:8000/dashboard/historical/${$_year}/${$_month}/`);
+    }
+    // Populating the Month select element
+    const months = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    $.each(months, function () {
+        $('select#monthInput').append($("<option />").val(this).text(this));
+    });
+</script>
 <script src="{% static 'sg_dashboard/js/load_month_charts.js' %}"></script>
 {% endblock jquery_section %}

@@ -1,7 +1,7 @@
 # import pandas as pd
 from numpy.random import randint
 
-from sg_dashboard.models import Historical_records, Temperature
+from sg_dashboard.models import Daily_records, Temperature
 
 months = ['January', 'February', 'March', 'April', 'May', 'June',
           'July', 'August', 'September', 'October', 'November', 'December']
@@ -10,7 +10,7 @@ months = ['January', 'February', 'March', 'April', 'May', 'June',
 # Return the data of the selected month-year
 def get_month_records(year, month: str):
     # Retrieve data from the DATABASE
-    records = Historical_records.objects.filter(
+    records = Daily_records.objects.filter(
         year=year, month=month)
     # Retrieve average data of the month from DATABASE
     averages = Temperature.objects.filter(

@@ -1,6 +1,6 @@
 // All charts of the dashboard
 var charts = {};
-
+console.log("before $");
 $(function () {
     var params = window.location.pathname.split("/");
     var year = params["3"];
@@ -15,6 +15,7 @@ $(function () {
         method: "GET",
         url: endpoint,
         success: function (data) {
+            // console.log(data);
             // Days labels
             var labels = new Array(data.Days.length)
                 .fill(1)
@@ -77,7 +78,7 @@ $(function () {
             */
         },
         error: function (error) {
-            console.log(error);
+            console.log("Error:", error);
         },
     });
 

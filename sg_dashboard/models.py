@@ -1,9 +1,9 @@
 import calendar
+import pandas as pd
 from django.db import models
 
-MONTHS = [(str(i), calendar.month_name[i]) for i in range(1, 13)]
 
-# MONTHS = ['january','february','march','april','may','juin','juily','august','september','october','november','december']
+MONTHS = [(str(i), calendar.month_name[i]) for i in range(1, 13)]
 
 
 class Temperature(models.Model):
@@ -24,8 +24,8 @@ class Temperature(models.Model):
         }
 
 
-#
-class Historical_records(models.Model):
+# Data for each day
+class Daily_records(models.Model):
     year = models.IntegerField(db_column='Year')
     month = models.CharField(max_length=20, choices=MONTHS)
     day = models.IntegerField(db_column='Day')
@@ -35,3 +35,16 @@ class Historical_records(models.Model):
     prec = models.FloatField(db_column='Precipitation')
     rel_humid = models.FloatField(db_column='Relative Humidity')
     pressure = models.FloatField(db_column='Pressure')
+
+
+# Data for each month
+class Monthly_records(models.Model):
+    year = models.IntegerField(db_column='Year')
+    month = models.CharField(max_length=20, choices=MONTHS)
+    min_temp = models.FloatField(db_column='Min Temperature')
+    avg_temp = models.FloatField(db_column='Avg Temperature')
+    max_temp = models.FloatField(db_column='Max Temperature')
+    avg_prec = models.FloatField(db_column='Avg Precipitation')
+    avg_rel_humid = models.FloatField(db_column='Avg Relative Humidity')
+    avg_pressure = models.FloatField(db_column='Avg Pressure')
+    
