@@ -36,6 +36,10 @@ class Daily_records(models.Model):
     rel_humid = models.FloatField(db_column='Relative Humidity')
     pressure = models.FloatField(db_column='Pressure')
 
+    # Row representation
+    def __str__(self):
+        return f'{self.day} - {self.month} - {self.year}'
+
 
 # Data for each month
 class Monthly_records(models.Model):
@@ -47,4 +51,7 @@ class Monthly_records(models.Model):
     avg_prec = models.FloatField(db_column='Avg Precipitation')
     avg_rel_humid = models.FloatField(db_column='Avg Relative Humidity')
     avg_pressure = models.FloatField(db_column='Avg Pressure')
-    
+
+    # Row representation
+    def __str__(self):
+        return f'{self.day} - {self.month} - {self.year}'

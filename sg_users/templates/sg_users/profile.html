@@ -5,10 +5,10 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-md-4 p-4">
+    <div class="col-md-10 p-2">
         <div class="card">
             <div class="card-body text-center">
-                <img id="profile_picture" src="{% static 'sg_users/assets/drone_farm.jpg'%}" class="rounded shadow"
+                <img id="profile_picture" src="{% static 'sg_users/assets/drone_farm.jpg'%}" class="rounded"
                     alt="{{user.username}}-profile-picture">
                 <a href="#">
                     <h2 class="p-3 font-weight-bold lime-text">@{{user.username}}
@@ -24,7 +24,7 @@
                                 <li class="list-group-item"><strong>Email :</strong></li>
                             </div>
                             <div class="col-md-6 text-left">
-                                <li class="list-group-item">{{user.first_name}}</li>
+                                <li class="list-group-item"></li>
                                 <li class="list-group-item">{{user.last_name}}</li>
                                 <li class="list-group-item">{{user.email}}</li>
 
@@ -40,26 +40,6 @@
 
         </div>
     </div>
-    <div class="col-md-8 p-4">
-        <div class="card">
-            <div class="card-header">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde ratione in laboriosam corporis blanditiis
-                iste quas magnam natus earum aliquam! Odit tempore voluptates id. Eligendi, illum velit? Accusamus, eius
-                autem.
-            </div>
-
-            <div class="card-body px-lg-5 pt-0 text-center">
-                <div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam ipsum laudantium assumenda
-                        fuga, accusamus asperiores totam voluptates voluptas provident rerum labore. Ea quis dignissimos
-                        quo nobis soluta quisquam aperiam.</p>
-                </div>
-                <h2>@{{user.username}}</h2>
-            </div>
-
-        </div>
-    </div>
-
 </div>
 
 <style>

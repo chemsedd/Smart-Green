@@ -1,20 +1,59 @@
 <div class="row">
-    <div class="col-md-6 my-3">
+    <!-- ############ Weather section ############ -->
+    <div class="col-md-5 mt-4">
+        <h1 class="display-4 font-weight-bold">
+            Weather charts
+        </h1>
+        <hr>
+    </div>
+    <div class="col w-100"></div>
+    <!-- Temperature chart -->
+    <div class="col-md-8 my-3">
         {% include './charts/tempChart.html' %}
     </div>
-    <div class="col-md-6 my-3">
+    <div class="col-md-4 my-3">
+        {% include './charts/chartReport.html' with title='Temperature report' report='' %}
+    </div>
+    <!-- Humidity chart -->
+    <div class="col-md-8 my-3">
         {% include './charts/humdChart.html' %}
     </div>
-    <div class="col-md-6 my-3">
+    <div class="col-md-4 my-3">
+        {% include './charts/chartReport.html' with title='Humidity report' report='' %}
+    </div>
+    <!-- Pressure chart -->
+    <div class="col-md-8 my-3">
         {% include './charts/pressureChart.html' %}
     </div>
-    <div class="col-md-6 my-3">
+    <div class="col-md-4 my-3">
+        {% include './charts/chartReport.html' with title='Pressure report' report='' %}
+    </div>
+    <!-- ############ Soild and crops section ############ -->
+    <div class="col-md-12 w-100"></div>
+    <div class="col-md-8 mt-4">
+        <h1 class="display-4 font-weight-bold">
+            Soil and crops charts
+        </h1>
+        <hr>
+    </div>
+    <div class="col w-100"></div>
+
+    <div class="col-md-8 my-3">
         {% include './charts/moistureChart.html' %}
     </div>
-    <div class="col-md-6 my-3">
+    <div class="col-md-4 my-3">
+        {% include './charts/chartReport.html' with title='Moisture report' report='' %}
+    </div>
+    <div class="col-md-8 my-3">
         {% include './charts/cropsChart.html' %}
     </div>
-    <div class="col-md-6 my-3">
+    <div class="col-md-4 my-3">
+        {% include './charts/chartReport.html' with title='Crops report' report='' %}
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12 my-3">
         {% include './charts/biskraMap.html' %}
     </div>
 </div>

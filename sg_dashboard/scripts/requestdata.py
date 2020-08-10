@@ -2,6 +2,8 @@
 from numpy.random import randint
 
 from sg_dashboard.models import Daily_records, Temperature
+from .consumer import consumer_kafka
+
 
 months = ['January', 'February', 'March', 'April', 'May', 'June',
           'July', 'August', 'September', 'October', 'November', 'December']
@@ -9,6 +11,7 @@ months = ['January', 'February', 'March', 'April', 'May', 'June',
 
 # Return the data of the selected month-year
 def get_month_records(year, month: str):
+    # consumer_kafka()
     # Retrieve data from the DATABASE
     records = Daily_records.objects.filter(
         year=year, month=month)
@@ -34,6 +37,8 @@ def get_month_records(year, month: str):
 
 # Get DATA api
 a = 0.8
+
+
 def get_data():
     data = {
         'temperature': {

@@ -1,11 +1,9 @@
 {% load static %}
 <div class="row">
     <div class="col-md-6">
-        <div class="card text-center shadow">
+        <div class="card text-center shadow full-height">
             <div class="card-body m-2">
                 <h4 class="text-left font-weight-bold">Plants infos</h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. In earum fugit nisi cumque porro, labore maxime
-                quam
                 <hr>
                 exercitationem molestiae asperiores maiores numquam quas, laudantium assumenda officiis odio est
                 inventore ipsa.
@@ -18,9 +16,15 @@
                 <h4 class="text-left font-weight-bold">Plants Pictures</h4>
                 <hr>
                 <div>
-                    <img src="{% static 'sg_dashboard\assets\plant.svg' %}" alt="Plant">
+                    <img src="{% static 'sg_dashboard\assets\plant.svg' %}" class="img-fluid w-50" alt="Plant">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .full-height {
+        height: 100%;
+    }
+</style>
