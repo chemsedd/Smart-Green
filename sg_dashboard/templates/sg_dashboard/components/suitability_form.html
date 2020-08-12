@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-row align-items-center">
+        <!-- Temperature input -->
+        <div class="form-group col-md-3">
+            {{ form.temperature | as_crispy_field }}
+        </div>
+        <!-- Humidity input -->
+        <div class="form-group col-md-3">
+            {{ form.humidity | as_crispy_field }}
+        </div>
+        <!-- Precipitation input -->
+        <div class="form-group col-md-3">
+            {{ form.precipitation | as_crispy_field }}
+        </div>
+        <!-- Pressure input -->
+        <div class="form-group col-md-3">
+            {{ form.pressure | as_crispy_field }}
+        </div>
+        <!-- Submit form -->
+        <div class="col-md-8">
+            <button class="btn btn-success w-100" onclick="submit">Submit</button>
+        </div>
+        <!-- Reset form fields -->
+        <div class="col-md-4">
+            <button class="btn btn-danger w-100" onclick="reset">Reset</button>
+        </div>
+    </div>
+</form>

@@ -1,7 +1,6 @@
 {% extends 'sg_dashboard/base.html' %}
 {% load static %}
 
-
 {% block content %}
 
 <div class="row">
@@ -29,41 +28,8 @@
                 </div>
                 <div class="col-md-12 w-100">
                 </div>
-                <form>
-                    <div class="form-row align-items-center">
-                        <!-- Temperature input -->
-                        <div class="form-group col-md-3">
-                            <label class="font-weight-bold" for="tempInput">Temperature (C°)</label>
-                            <input type="number" min="-40" max="100" class="form-control" id="tempInput"
-                                placeholder="(-40 C°, 100 C°)">
-                        </div>
-                        <!-- Humidity input -->
-                        <div class="form-group col-md-3">
-                            <label class="font-weight-bold" for="humidInput">Humidity (%)</label>
-                            <input type="number" min="0" max="100" class="form-control" id="humidInput"
-                                placeholder="(0%, 100%)">
-                        </div>
-                        <!-- Precipitation input -->
-                        <div class="form-group col-md-3">
-                            <label class="font-weight-bold" for="precpInput">Precipitation (%)</label>
-                            <input type="number" min="0" max="100" class="form-control" id="precipInput"
-                                placeholder="(0%, 100%)">
-                        </div>
-                        <!-- Humidity input -->
-                        <div class="form-group col-md-3">
-                            <label class="font-weight-bold" for="humidInput">Pressure (%)</label>
-                            <input type="number" min="0" max="100" class="form-control" id="pressureInput"
-                                placeholder="(0%, 100%)">
-                        </div>
-                        <!--  -->
-                        <div class="col-md-8">
-                            <button class="btn btn-success w-100" onclick="predict_suitability()">Submit</button>
-                        </div>
-                        <div class="col-md-4">
-                            <button class="btn btn-danger w-100" onclick="reset()">Reset</button>
-                        </div>
-                    </div>
-                </form>
+                <!--  Land suitability form  -->
+                {% include './components/suitability_form.html' %}
             </div>
         </div>
     </div>
@@ -73,18 +39,5 @@
 
 {% block jquery_section %}
 <script>
-    function predict_suitability() {
-        // Get input values
-        var temp = $('#tempInput').val();
-        var humid = $('#humidInput').val();
-        var pressure = $('#pressureInput').val();
-        var precip = $('#precipInput').val();
-
-        // Predict suitability using the pre-trained model (on server)
-        console.log("Temperature:" + temp);
-        console.log("Humidity:" + humid);
-        console.log("Pressure:" + pressure);
-        console.log("Precipitation:" + precip);
-    }
 </script>
 {% endblock jquery_section %}
