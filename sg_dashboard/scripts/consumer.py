@@ -10,9 +10,11 @@ from json import loads
 
 
 def consumer_kafka():
+    print('Kafka Consumer started... ✔')
+    print('---------------------------')
     consumer = KafkaConsumer(
         'WeatherData', bootstrap_servers=['localhost:9092'])
-
+    # receiving messages from producer
     for message in consumer:
         data: dict = loads(message.value)
         for k, v in data.items():

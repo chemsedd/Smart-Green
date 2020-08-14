@@ -1,9 +1,10 @@
 # import pandas as pd
 from numpy.random import randint
+import threading
 
 from sg_dashboard.models import Daily_records, Temperature
-from .consumer import consumer_kafka
 
+from .consumer import consumer_kafka
 
 months = ['January', 'February', 'March', 'April', 'May', 'June',
           'July', 'August', 'September', 'October', 'November', 'December']
@@ -11,14 +12,13 @@ months = ['January', 'February', 'March', 'April', 'May', 'June',
 
 # Return the data of the selected month-year
 def get_month_records(year, month: str):
-    # consumer_kafka()
     # Retrieve data from the DATABASE
     records = Daily_records.objects.filter(
         year=year, month=month)
     # Retrieve average data of the month from DATABASE
     averages = Temperature.objects.filter(
         year=year, month=month.lower()).values('min_temp', 'avg_temp', 'max_temp')
-    # Struceture days records on a list
+    # Structure days records on a list
     results = {
         'Data': {
             'province': 'Biskra',

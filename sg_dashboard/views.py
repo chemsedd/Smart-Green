@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
-
 from .models import Temperature
 from .scripts.requestdata import get_data, get_month_records
 from .forms import LandSuitabilityForm
+import threading
+# kafka function
+from .scripts.consumer import consumer_kafka
 
 
 #
@@ -12,6 +14,8 @@ from .forms import LandSuitabilityForm
 #
 @login_required
 def index(request):
+    # start kafka thread for receiving data
+    threading.Thread(target=consumer_kafka).start()
     return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard'})
 
 
@@ -20,7 +24,6 @@ def index(request):
 #
 @login_required
 def historical_empty(request):
-    # results = get_month_records(year, month)
     return render(request, 'sg_dashboard/historical_empty.html', {'title': 'Historical data'})
 
 
