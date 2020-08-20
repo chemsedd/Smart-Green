@@ -4,13 +4,13 @@
 {% block content %}
 
 <div class="row">
-
     <div class="col-md-12 text-left">
         <h1 class="display-4 font-weight-bold lime-text"> Land suitability
         </h1>
     </div>
     <!-- Input land and weather data to get land suitability -->
-    <div class="col-md-12">
+
+    <div class="col-md-12 mb-1">
         <div class="card shadow-sm">
             <div class="card-body">
                 <!-- ----------------------------- -->
@@ -18,9 +18,9 @@
                 <!-- ----------------------------- -->
                 <div class="row">
                     <div class="col-md-7">
-                        <h3 class="pt-2">Choose land and weather factors:</h3>
+                        <h3 class="pt-1">Choose land and weather factors:</h3>
                     </div>
-                    <div class="col-md-12 pb-4 text-muted">
+                    <div class="col-md-12 pb-3 text-muted">
                         Predicting land suitability is based on land and weather factors. Enter the required information
                         so that the Intelligent Model could predict the land suitability and outputs one of the four
                         classes: <i>Best suitability, Suitable, Modelrately suitable and Unsuitable.</i>
@@ -33,6 +33,44 @@
             </div>
         </div>
     </div>
+    {% if report %}
+    <div class="col-md-12 my-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <!-- ----------------------------------- -->
+                <!-- Land Suitability prediction results -->
+                <!-- ----------------------------------- -->
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3 class="pt-2">Prediction and analysis results:</h3>
+                    </div>
+                    <div class="col-md-12 pb-4 text-muted">
+                        Predicting land suitability is based on land and weather factors. Enter the required information
+                        so that the Intelligent Model could predict the land suitability and outputs one of the four
+                        classes: <i>Best suitability, Suitable, Modelrately suitable and Unsuitable.</i>
+                    </div>
+                </div>
+                <div class="col-md-12 w-100">
+                </div>
+                {% if report.result == 3 %}
+                <h1 class="light-green-text font-weight-bold">Best Suitability</h1>
+                <p> This land and weather represent the perfect condition for the plant to grow.</p>
+                {% elif report.result == 2 %}
+                <h1 class="lime-text font-weight-bold">Suitable</h1>
+                <p> This land and weather are good enough for the plant to grow.</p>
+                {% elif report.result == 1%}
+                <h1 class="orange-text font-weight-bold">Moderately suitable</h1>
+                <p> This land and weather require more fretilization for the plant to grow.</p>
+                {% elif report.result == 0 %}
+                <h1 class="deep-orange-text font-weight-bold">Unsuitable</h1>
+                <p> This land and weather are completely unsuitable for growing plants.</p>
+                {% else %}
+                <h1 class="deep-orange-text font-weight-bold">{{report.result}}</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock content %}
