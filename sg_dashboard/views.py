@@ -16,7 +16,8 @@ import threading
 @login_required
 def index(request):
     # start kafka thread for receiving data
-    threading.Thread(target=consumer_kafka).start()
+    kafka_thread = threading.Thread(target=consumer_kafka)
+    kafka_thread.start()
     nbr_pics = range(1, 8)
     return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard', 'nbr_pics': nbr_pics})
 
