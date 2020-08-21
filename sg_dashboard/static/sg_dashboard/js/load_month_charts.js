@@ -33,7 +33,6 @@ $(function () {
                 pressure_data.push(record.pressure);
                 humid_data.push(record.rel_humid);
                 prec_data.push(record.prec);
-                console.log(prec);
             });
             //  Temperature chart
             var tempdata = {
