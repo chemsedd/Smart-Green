@@ -16,7 +16,9 @@ import threading
 @login_required
 def index(request):
     # start kafka thread for receiving data
-    threading.Thread(target=consumer_kafka).start()
+    kafka_thread = threading.Thread(target=consumer_kafka)
+    kafka_thread.start()
+    # added new feautre
     nbr_pics = range(1, 8)
     return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard', 'nbr_pics': nbr_pics})
 
@@ -54,7 +56,7 @@ def data(request):
 
 
 PATH = 'D:\works\master-2\smart_green\sg_dashboard\scripts\lstm_model'
-model = load_model(PATH)
+model = None
 
 
 #
@@ -86,6 +88,10 @@ def handleForm(request):
 #
 @login_required
 def land_suitability(request):
+    global model
+    # loading the LSTM model
+    if model == None:
+        model = load_model(PATH)
     # handle form
     if request.method == 'POST':
         return handleForm(request)

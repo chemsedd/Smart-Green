@@ -29,7 +29,7 @@ $(function () {
             charts.moistureChart = createMoistureChart(moisturedata);
 
             // Start websocket (Dashboard <-> Server)
-            open_socket();
+            //open_socket();
         },
         error: function (error) {
             console.log(error);

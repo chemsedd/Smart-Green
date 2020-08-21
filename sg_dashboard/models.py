@@ -24,6 +24,26 @@ class Temperature(models.Model):
         }
 
 
+# Daily values recorded from the raspberry pi
+class Daily_real_time(models.Model):
+    date = models.DateTimeField(db_column='Date', auto_now=True)
+    temperature = models.IntegerField(db_column='Temperature')
+    pressure = models.FloatField(db_column='Pressure')
+    humidity = models.FloatField(db_column='Humidity')
+    pH = models.FloatField(db_column='pH')
+    moisture = models.FloatField(db_column='Moisture')
+
+    # Row representation
+
+    def __str__(self):
+        return f'> {self.date}:'\
+            f'\n\tTemperature = {self.temperature}C'\
+            f'\n\tPressure = {self.pressure}%'\
+            f'\n\tHumidity = {self.humidity}%'\
+            f'\n\tpH = {self.pH}'\
+            f'\n\tMoisture = {self.moisture}%'
+
+
 # Data for each day
 class Daily_records(models.Model):
     year = models.IntegerField(db_column='Year')

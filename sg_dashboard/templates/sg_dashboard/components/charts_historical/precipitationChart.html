@@ -1,0 +1,53 @@
+{% load static %}
+<div class="card text-center shadow">
+    <div class="card-body m-2">
+        <h4 class="text-left font-weight-bold">Precipitation </h4>
+        <hr>
+        <canvas id="precipitationCanvas">
+        </canvas>
+    </div>
+</div>
+
+<script>
+    /**
+     * Create Precipitation chart
+     */
+    function createPrecipitationChart(data) {
+
+        var precipitationCanvas = document.getElementById('precipitationCanvas').getContext('2d');
+
+        return new Chart(precipitationCanvas, {
+            type: 'line',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Precipitation',
+                    data: data.data,
+                    backgroundColor: 'rgba(12, 32, 200, 0.8)',
+                    borderColor: 'rgba(255, 215, 70, 0.0)',
+                    borderWidth: 3,
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: {
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                        },
+                    }
+                }
+            }
+        });
+    }
+
+
+    /**
+     * Update Precipitation chart
+     */
+    function updatePrecipitation(value) {
+        charts.precipitationChart.data.labels.push("Test");
+        console.log(charts.precipitationChart.data.datasets[0].data.push(value));
+        charts.precipitationChart.update();
+    }
+</script>

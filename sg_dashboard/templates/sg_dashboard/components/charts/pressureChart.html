@@ -9,44 +9,44 @@
 </div>
 
 <script>
-/**
- * Create Pressure chart
- */
-function createPressureChart(data) {
+    /**
+     * Create Pressure chart
+     */
+    function createPressureChart(data) {
 
-    var pressureCanvas = document.getElementById('pressureCanvas').getContext('2d');
+        var pressureCanvas = document.getElementById('pressureCanvas').getContext('2d');
 
-    return new Chart(pressureCanvas, {
-        type: 'radar',
-        data: {
-            labels: data.labels,
-            datasets: [{
-                label: 'Pressure',
-                data: data.data,
-                backgroundColor: 'rgba(255, 215, 70, 0.7)',
-                borderWidth: 3,
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: {
-                    ticks: {
-                        min: 0,
-                        max: 100,
-                    },
+        return new Chart(pressureCanvas, {
+            type: 'polarArea',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Pressure',
+                    data: data.data,
+                    backgroundColor: 'rgba(255, 215, 70, 0.7)',
+                    borderWidth: 3,
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: {
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                        },
+                    }
                 }
             }
-        }
-    });
-}
+        });
+    }
 
 
-/**
- * Update Temperature chart
- */
-function updateTemperature(value) {
-    charts.tempChart.data.labels.push("Test");
-    console.log(charts.tempChart.data.datasets[0].data.push(value));
-    charts.tempChart.update();
-}
+    /**
+     * Update Temperature chart
+     */
+    function updateTemperature(value) {
+        charts.tempChart.data.labels.push("Test");
+        console.log(charts.tempChart.data.datasets[0].data.push(value));
+        charts.tempChart.update();
+    }
 </script>
