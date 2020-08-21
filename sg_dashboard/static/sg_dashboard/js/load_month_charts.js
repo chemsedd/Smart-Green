@@ -1,30 +1,30 @@
 // All charts of the dashboard
 var charts = {};
-console.log("before $");
 $(function () {
     var params = window.location.pathname.split("/");
     var year = params["3"];
     var month = params["4"];
     // DATA url
     var endpoint = `http://localhost:8000/dashboard/api/${year}/${month}/`;
-    console.log(endpoint);
+
     /**
-     * Create charts on the dashboard
+     * Create charts on the dashboard (historical)
      */
     $.ajax({
         method: "GET",
         url: endpoint,
         success: function (data) {
-            // console.log(data);
             // Days labels
             var labels = new Array(data.Days.length)
                 .fill(1)
                 .map((_, i) => "Day ".concat(i + 1));
-            min_temp_data = [];
-            avg_temp_data = [];
-            max_temp_data = [];
-            pressure_data = [];
-            humid_data = [];
+            var min_temp_data = [];
+            var avg_temp_data = [];
+            var max_temp_data = [];
+            var pressure_data = [];
+            var humid_data = [];
+            var prec_data = [];
+
             // Run through the data and collect : min, avg, max temp, pressure
             data.Days.map(function (record) {
                 min_temp_data.push(record.min_temp);
@@ -32,6 +32,8 @@ $(function () {
                 max_temp_data.push(record.max_temp);
                 pressure_data.push(record.pressure);
                 humid_data.push(record.rel_humid);
+                prec_data.push(record.prec);
+                console.log(prec);
             });
             //  Temperature chart
             var tempdata = {
@@ -64,6 +66,14 @@ $(function () {
                 labels: labels,
             };
             charts.pressureChart = createPressureChart(pressuredata);
+
+            // Precipitation chart
+            var precipitationdata = {
+                data: prec_data,
+                labels: labels,
+            };
+            charts.precipitationChart = createPrecipitationChart(precipitationdata);
+
 
             /*// Crop yieds chart
             cropsdata = data.crops;

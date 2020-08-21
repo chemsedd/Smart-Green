@@ -56,7 +56,7 @@ def data(request):
 
 
 PATH = 'D:\works\master-2\smart_green\sg_dashboard\scripts\lstm_model'
-model = load_model(PATH)
+model = None
 
 
 #
@@ -88,6 +88,10 @@ def handleForm(request):
 #
 @login_required
 def land_suitability(request):
+    global model
+    # loading the LSTM model
+    if model == None:
+        model = load_model(PATH)
     # handle form
     if request.method == 'POST':
         return handleForm(request)
