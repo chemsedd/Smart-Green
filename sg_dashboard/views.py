@@ -8,7 +8,6 @@ from tensorflow.keras.models import load_model
 from .scripts.prediction_model import make_prediction
 from .forms import LandSuitabilityForm
 import threading
-# kafka function
 
 
 #
@@ -17,8 +16,9 @@ import threading
 @login_required
 def index(request):
     # start kafka thread for receiving data
-    # threading.Thread(target=consumer_kafka).start()
-    return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard'})
+    threading.Thread(target=consumer_kafka).start()
+    nbr_pics = range(1, 8)
+    return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard', 'nbr_pics': nbr_pics})
 
 
 #
