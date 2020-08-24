@@ -29,43 +29,48 @@ $(function () {
             charts.moistureChart = createMoistureChart(moisturedata);
 
             // Start websocket (Dashboard <-> Server)
-            //open_socket();
+            open_socket();
         },
         error: function (error) {
             console.log(error);
         }
     });
 
-    /**
+    /*
      * Open Websocket with the Server
      * to recieve updates
      * and update dashboard accordingly 
-     
+     * */
     function open_socket() {
 
         // Server address
         var SERVER = 'localhost';
 
         // Server port
-        var PORT = '8750';
+        var PORT = '5000';
 
         // Websocket connected to the server
         var ws = new WebSocket("ws://" + SERVER + ":" + PORT);
 
-        // On message, perform updates on charts
-        ws.onmessage = function (message) {
-            // Parse recieved message to object
-            var data = JSON.parse(message.data);
-            console.log(data)
-            // Update charts
+        ws.onopen = function (event) {
+            console.log('----------------------------------\n');
+            console.log(' Connection with server initiated \n');
+            console.log('----------------------------------\n');
+        }
+
+
+        ws.onmessage = function (event) {
+            var data = JSON.parse(event.data)
+            console.log(data);
             updateTemperature(data.temperature);
             updateHumidity(data.humidity);
             updateMoisture(data.moisture);
-        };
+        }
 
-        ws.onerror = function (error) {
-            // on error message...
+        ws.onclose = function (event) {
+            console.log('----------------------------------\n');
+            console.log('Connection with server closed...!\n');
+            console.log('----------------------------------\n');
         }
     }
-    */
 })
