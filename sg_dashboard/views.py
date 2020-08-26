@@ -78,7 +78,7 @@ def handleForm(request):
                                      [precipitation, humidity, pressure, temperature])
         print(prediction)
         report = {
-            'result': prediction[0]
+            'result': prediction
         }
         return render(request, 'sg_dashboard/land_suitability.html', {'report': report, 'form': form})
 

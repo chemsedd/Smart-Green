@@ -42,26 +42,17 @@ a = 0.8
 def get_data():
     data = {
         'temperature': {
-            'labels': months,
             'datalabel': 'Temperature °C',
-            'data': [randint(20, 30) for _ in range(12)],
-            # 'bgcolors': [
-            #     f'rgba(230, 242, 62, {a})',
-            # ]
         },
         'humidity': {
-            'labels': months,
             'datalabel': 'Humidity %',
-            'data': [randint(14, 40) for _ in range(12)],
             'bgcolors':
                 f'rgba(33, 150, 243, {a})',
 
 
         },
         'moisture': {
-            'labels': months,
             'datalabel': 'Soil Moisture %',
-            'data': [randint(14, 40) for _ in range(12)],
             'bgcolors':
                 f'rgba(33, 150, 243, {a})',
 

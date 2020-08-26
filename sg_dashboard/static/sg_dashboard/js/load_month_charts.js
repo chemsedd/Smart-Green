@@ -90,37 +90,4 @@ $(function () {
             console.log("Error:", error);
         },
     });
-
-    /**
-     * Open Websocket with the Server
-     * to recieve updates
-     * and update dashboard accordingly 
-     
-    function open_socket() {
-
-        // Server address
-        var SERVER = 'localhost';
-
-        // Server port
-        var PORT = '8750';
-
-        // Websocket connected to the server
-        var ws = new WebSocket("ws://" + SERVER + ":" + PORT);
-
-        // On message, perform updates on charts
-        ws.onmessage = function (message) {
-            // Parse recieved message to object
-            var data = JSON.parse(message.data);
-            console.log(data)
-            // Update charts
-            updateTemperature(data.temperature);
-            updateHumidity(data.humidity);
-            updateMoisture(data.moisture);
-        };
-
-        ws.onerror = function (error) {
-            // on error message...
-        }
-    }
-    */
 });
