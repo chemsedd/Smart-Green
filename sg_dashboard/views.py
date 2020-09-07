@@ -16,8 +16,8 @@ import threading
 @login_required
 def index(request):
     # start kafka thread for receiving data
-    kafka_thread = threading.Thread(target=consumer_kafka)
-    kafka_thread.start()
+    # kafka_thread = threading.Thread(target=consumer_kafka)
+    # kafka_thread.start()
     # added new feautre
     nbr_pics = range(1, 8)
     return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard', 'nbr_pics': nbr_pics})
@@ -76,7 +76,6 @@ def handleForm(request):
 
         prediction = make_prediction(model,
                                      [precipitation, humidity, pressure, temperature])
-        print(prediction)
         report = {
             'result': prediction
         }

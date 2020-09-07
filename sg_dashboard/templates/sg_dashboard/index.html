@@ -1,44 +1,33 @@
-{% extends 'sg_dashboard/base.html' %}
-{% load static %}
-
-
-{% block content %}
+{% extends 'sg_dashboard/base.html' %} {% load static %} {% block content %}
 
 <div id="data-visualization" class="row">
-    <div class="col-md-12 text-left">
-        <h1 class="display-4 font-weight-bold lime-text"> Data Visualization (real time)
-        </h1>
-    </div>
-    <div class="col-md-12 lime-text">
-        <h3>Last checked: {% now "H:i / Y-m-d" %}</h3>
-    </div>
+  <div class="col-md-12 text-left">
+    <h1 class="display-4 font-weight-bold lime-text">
+      Data Visualization (real time)
+    </h1>
+  </div>
+  <div class="col-md-12 lime-text">
+    <h3>Last checked: {% now "H:i / Y-m-d" %}</h3>
+  </div>
 </div>
-<hr>
+<hr />
 
-<!-- Plants info -->
+<!-- Plantts info -->
 {% include './components/plants_infos.html' %}
-
 
 <!-- Charts -->
 {% include './components/charts.html' %}
 
-
 <!-- ############ Production section ############ -->
 <div class="col-md-6 mt-4">
-    <h1 class="display-4 font-weight-bold">
-        Production
-    </h1>
-    <hr>
+  <h1 class="display-4 font-weight-bold">Production</h1>
+  <hr />
 </div>
 <div class="col w-100"></div>
 
 <!-- Tables -->
-{% include './components/tables.html' %}
-
-
-{% endblock content %}
-
-{% block jquery_section %}
+{% include './components/tables.html' %} {% endblock content %} {% block
+jquery_section %}
 
 <script src="{% static 'sg_dashboard/js/load_charts.js' %}"></script>
 
