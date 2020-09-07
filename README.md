@@ -10,3 +10,6 @@
 
 ## Historical data visualization
 ![SmartGreen historical data visualization](screenshots/dashboard-historical-data.png)
+
+## Land Suitability prediction  
+![SmartGreen Land Suitability Prediction](screenshots/dashboard-land-suitability.png)
