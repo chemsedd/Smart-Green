@@ -65,13 +65,24 @@ class Daily_records(models.Model):
 class Monthly_records(models.Model):
     year = models.IntegerField(db_column='Year')
     month = models.CharField(max_length=20, choices=MONTHS)
-    min_temp = models.FloatField(db_column='Min Temperature')
-    avg_temp = models.FloatField(db_column='Avg Temperature')
-    max_temp = models.FloatField(db_column='Max Temperature')
-    avg_prec = models.FloatField(db_column='Avg Precipitation')
-    avg_rel_humid = models.FloatField(db_column='Avg Relative Humidity')
-    avg_pressure = models.FloatField(db_column='Avg Pressure')
+
+    min_temp = models.FloatField(db_column='min_temp')
+    avg_temp = models.FloatField(db_column='avg_temp')
+    max_temp = models.FloatField(db_column='max_temp')
+
+    min_prec = models.FloatField(db_column='min_prec')
+    avg_prec = models.FloatField(db_column='avg_prec')
+    max_prec = models.FloatField(db_column='max_prec')
+
+    min_rel_humid = models.FloatField(db_column='min_rel_humid')
+    avg_rel_humid = models.FloatField(db_column='avg_rel_humid')
+    max_rel_humid = models.FloatField(db_column='max_rel_humid')
+
+    min_pressure = models.FloatField(db_column='min_Pressure')
+    avg_pressure = models.FloatField(db_column='avg_Pressure')
+    max_pressure = models.FloatField(db_column='max_Pressure')
 
     # Row representation
+
     def __str__(self):
-        return f'{self.day} - {self.month} - {self.year}'
+        return f'> {self.month} - {self.year}\n'

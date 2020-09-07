@@ -49,16 +49,18 @@
                 </div>
                 {% if report.result == 3 %}
                 <h1 class="light-green-text font-weight-bold">Best Suitability</h1>
-                <p> This land and weather represent the perfect condition for the plant to grow.</p>
+                <p class="light-green-text"> This land and weather represent the perfect condition for the plant to
+                    grow.</p>
+
                 {% elif report.result == 2 %}
                 <h1 class="lime-text font-weight-bold">Suitable</h1>
-                <p> This land and weather are good enough for the plant to grow.</p>
+                <p class="lime-text"> This land and weather are good enough for the plant to grow.</p>
                 {% elif report.result == 1%}
                 <h1 class="orange-text font-weight-bold">Moderately suitable</h1>
-                <p> This land and weather require more fretilization for the plant to grow.</p>
+                <p class="orange-text"> This land and weather require more fretilization for the plant to grow.</p>
                 {% elif report.result == 0 %}
                 <h1 class="deep-orange-text font-weight-bold">Unsuitable</h1>
-                <p> This land and weather are completely unsuitable for growing plants.</p>
+                <p class="deep-orange-text"> This land and weather are completely unsuitable for growing plants.</p>
                 {% else %}
                 <h1 class="deep-orange-text font-weight-bold">{{report.result}}</h1>
                 {% endif %}
@@ -71,6 +73,4 @@
 {% endblock content %}
 
 {% block jquery_section %}
-<script>
-</script>
 {% endblock jquery_section %}
