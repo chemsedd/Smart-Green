@@ -1,12 +1,12 @@
 # Smart Green
 ## Login
-![SmartGreen login page](screenshot/login.png)
+![SmartGreen login page](screenshots/login.png)
 
 ## Signup
-![SmartGreen signup page](screenshot/signup.png)
+![SmartGreen signup page](screenshots/signup.png)
 
 ## Real time data visualization
-![SmartGreen real time data visualization](screenshot/Dashboard-rt.png)
+![SmartGreen real time data visualization](screenshots/Dashboard-rt.png)
 
 ## Historical data visualization
-![SmartGreen historical data visualization](screenshot/dashboard-historical-data.png)
+![SmartGreen historical data visualization](screenshots/dashboard-historical-data.png)
