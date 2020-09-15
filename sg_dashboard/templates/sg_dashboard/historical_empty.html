@@ -32,7 +32,11 @@
     function get_data_page() {
         var $_year = $('#yearInput').val();
         var $_month = $('#monthInput').val();
-        $(location).attr('href', `http://localhost:8000/dashboard/historical/${$_year}/${$_month}/`);
+        if ($('#api').is(':checked')) {
+            $(location).attr('href', `http://localhost:8000/dashboard/api/${$_year}/${$_month}/`);
+        } else {
+            $(location).attr('href', `http://localhost:8000/dashboard/historical/${$_year}/${$_month}/`);
+        }
     }
 
     // Populating the Month select element

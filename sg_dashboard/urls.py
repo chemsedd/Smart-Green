@@ -6,8 +6,7 @@ urlpatterns = [
     path('historical', views.historical_empty, name='sg-historical-empty'),
     path('historical/<int:year>/<str:month>/',
          views.historical, name='sg-historical'),
-    path('land-suitability', views.land_suitability, name='sg-land-suitability'),
     path('api/<int:year>/<str:month>/',
          views.historical_api, name='sg-historical-api'),
-    path('data', views.data, name='sg-dashboard-data'),
+    path('land-suitability', views.land_suitability, name='sg-land-suitability'),
 ]

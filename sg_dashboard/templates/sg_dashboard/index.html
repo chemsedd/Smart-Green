@@ -1,4 +1,6 @@
-{% extends 'sg_dashboard/base.html' %} {% load static %} {% block content %}
+{% extends 'sg_dashboard/base.html' %}
+{% load static %}
+{% block content %}
 
 <div id="data-visualization" class="row">
   <div class="col-md-12 text-left">
@@ -26,8 +28,10 @@
 <div class="col w-100"></div>
 
 <!-- Tables -->
-{% include './components/tables.html' %} {% endblock content %} {% block
-jquery_section %}
+{% include './components/tables.html' %}
+
+{% endblock content %}
+{% block jquery_section %}
 
 <script src="{% static 'sg_dashboard/js/load_charts.js' %}"></script>
 

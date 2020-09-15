@@ -24,7 +24,7 @@ def index(request):
 
 
 #
-#
+# Historical data page - with date picker
 #
 @login_required
 def historical_empty(request):
@@ -36,23 +36,16 @@ def historical_empty(request):
 #
 @login_required
 def historical(request, year, month):
-    return render(request, 'sg_dashboard/historical.html', context={'title': 'Historical', 'year': year, 'month': month})
+    return render(request, 'sg_dashboard/historical.html', context={'title': 'Historical data', 'year': year, 'month': month})
 
 
 #
 # Get data from the database about the month and the year and provide it for API requests
 #
 def historical_api(reques, year, month):
-    results = get_month_records(year, month)
+    month_ = month.capitalize()
+    results = get_month_records(year, month_)
     return JsonResponse(results)
-
-
-#
-#   Data page (for API)
-#
-def data(request):
-    response = get_data()
-    return JsonResponse(response)
 
 
 PATH = 'D:\works\master-2\smart_green\sg_dashboard\scripts\lstm_model'

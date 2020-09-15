@@ -31,7 +31,6 @@ def get_month_records(year, month: str):
     }
     for rec in records.values():
         results['Days'].append(rec)
-    # Return results
     return results
 
 
