@@ -62,7 +62,7 @@ class Daily_records(models.Model):
 
 
 # Data for each month
-class Monthly_records(models.Model):
+class Monthly_records_stats(models.Model):
     year = models.IntegerField(db_column='Year')
     month = models.CharField(max_length=20, choices=MONTHS)
 
@@ -85,4 +85,8 @@ class Monthly_records(models.Model):
     # Row representation
 
     def __str__(self):
-        return f'> {self.month} - {self.year}\n'
+        s = f'----------------------------\n'
+        for k, v in self.__dict__.items():
+            s += f'> {k:15} : {str(v):15} \n'
+        s += f'----------------------------\n'
+        return s

@@ -1,17 +1,66 @@
-<div class="row">
-    <div class="col-md-6 my-3">
-        {% include './charts_historical/tempChart.html' %}
+    <!-- ------------------------------- -->
+    <!-- ------------------------------- -->
+    <div class="row my-4">
+        <div class="col-md-12 mt-4">
+            <h1 class="font-weight-bold">Temperature
+            </h1>
+        </div>
+        <div class="col-md-8 mt-2">
+            {% include './charts_historical/tempChart.html' %}
+        </div>
+        <div class="col-md-4 my-2">
+            {% include './stats/tempStats.html' %}
+        </div>
     </div>
-    <div class="col-md-6 my-3">
-        {% include './charts_historical/humdChart.html' %}
+    <hr>
+    <!-- ------------------------------- -->
+    <!-- ------------------------------- -->
+    <div class="row my-4">
+        <div class="col-md-12 mt-4">
+            <h1 class="font-weight-bold">Relative humidity
+            </h1>
+        </div>
+        <div class="col-md-8 my-2">
+            {% include './charts_historical/humdChart.html' %}
+        </div>
+        <div class="col-md-4 my-2">
+            {% include './stats/humidStats.html' %}
+        </div>
     </div>
-    <div class="col-md-6 my-3">
-        {% include './charts_historical/pressureChart.html' %}
+    <hr>
+    <!-- ------------------------------- -->
+    <!-- ------------------------------- -->
+    <div class="row my-4">
+        <div class="col-md-12 mt-4">
+            <h1 class="font-weight-bold">Pressure
+            </h1>
+        </div>
+        <div class="col-md-8 my-2">
+            {% include './charts_historical/pressureChart.html' %}
+        </div>
+        <div class="col-md-4 my-2">
+            {% include './stats/pressureStats.html' %}
+        </div>
     </div>
-    <div class="col-md-6 my-3">
-        {% include './charts_historical/precipitationChart.html' %}
+    <hr>
+    <!-- ------------------------------- -->
+    <!-- ------------------------------- -->
+    <div class="row my-4">
+        <div class="col-md-12 mt-4">
+            <h1 class="font-weight-bold">Precipitation
+            </h1>
+        </div>
+        <div class="col-md-8 my-2">
+            {% include './charts_historical/precipitationChart.html' %}
+        </div>
+        <div class="col-md-4 my-2">
+            {% include './stats/precStats.html' %}
+        </div>
     </div>
-    <div class="col-md-6 my-3">
+    <hr>
+    <!-- ------------------------------- -->
+    <!-- ------------------------------- -->
+    {% comment %} <div class="col-md-8 my-2">
         {% include './charts_historical/moistureChart.html' %}
     </div>
     <div class="col-md-6 my-3">
@@ -20,5 +69,5 @@
     <div class="col-md-6 my-3">
         {% include './charts_historical/biskraMap.html' %}
     </div>
-</div>
-<hr>
+    </div>
+    <hr> {% endcomment %}

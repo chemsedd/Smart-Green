@@ -34,6 +34,8 @@ $(function () {
                 humid_data.push(record.rel_humid);
                 prec_data.push(record.prec);
             });
+
+
             //  Temperature chart
             var tempdata = {
                 min_data: min_temp_data,
@@ -42,15 +44,58 @@ $(function () {
                 labels: labels,
             };
             charts.tempChart = createTempChart(tempdata);
-            // Set min temp
-            min_temp = data.Month[0].min_temp;
+            // -------------------------------------------
+            //                  Temp
+            // -------------------------------------------
+            // min
+            min_temp = Number(data.Stats.min_temp.toFixed(2));
             $("#min_temp").html(min_temp + "<sup>°C</sup>");
-            // Set avg temp
-            avg_temp = data.Month[0].avg_temp;
+            // avg 
+            avg_temp = Number(data.Stats.avg_temp.toFixed(2));
             $("#avg_temp").html(avg_temp + "<sup>°C</sup>");
-            // Set max temp
-            max_temp = data.Month[0].max_temp;
+            // max 
+            max_temp = Number(data.Stats.max_temp.toFixed(2));
             $("#max_temp").html(max_temp + "<sup>°C</sup>");
+
+            // -------------------------------------------
+            //                 precipitation 
+            // -------------------------------------------
+            // min
+            min_prec = Number(data.Stats.min_prec.toFixed(2));
+            $("#min_prec").html(min_prec + "<sup>%</sup>");
+            // avg 
+            avg_prec = Number(data.Stats.avg_prec.toFixed(2));
+            $("#avg_prec").html(avg_prec + "<sup>%</sup>");
+            // max 
+            max_prec = Number(data.Stats.max_prec.toFixed(2));
+            $("#max_prec").html(max_prec + "<sup>%</sup>");
+
+            // -------------------------------------------
+            //               Rel_humid
+            // -------------------------------------------
+            // min
+            min_rel_humid = Number(data.Stats.min_rel_humid.toFixed(2));
+            $("#min_rel_humid").html(min_rel_humid + "<sup>%</sup>");
+            // avg 
+            avg_rel_humid = Number(data.Stats.avg_rel_humid.toFixed(2));
+            $("#avg_rel_humid").html(avg_rel_humid + "<sup>%</sup>");
+            // max 
+            max_rel_humid = Number(data.Stats.max_rel_humid.toFixed(2));
+            $("#max_rel_humid").html(max_rel_humid + "<sup>%</sup>");
+
+            // -------------------------------------------
+            //               Pressure
+            // -------------------------------------------
+            // min
+            min_pressure = Number(data.Stats.min_pressure.toFixed(2));
+            $("#min_pressure").html(min_pressure + "<sup>%</sup>");
+            // avg 
+            avg_pressure = Number(data.Stats.avg_pressure.toFixed(2));
+            $("#avg_pressure").html(avg_pressure + "<sup>%</sup>");
+            // max 
+            max_pressure = Number(data.Stats.max_pressure.toFixed(2));
+            $("#max_pressure").html(max_pressure + "<sup>%</sup>");
+
 
             // Humidity chart
             var humdata = {
