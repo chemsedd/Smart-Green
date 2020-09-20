@@ -12,7 +12,7 @@
     /**
      * Create Soil moisture chart
      */
-    function createMoistureChart(data) {
+    function createMoistureChart() {
 
         var moistureCanvas = document.getElementById('moistureCanvas').getContext('2d');
 
@@ -21,7 +21,7 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: data.datalabel,
+                    label: 'Soil moisture',
                     data: [],
                     //backgroundColor: bgcolor,
                     borderWidth: 3,

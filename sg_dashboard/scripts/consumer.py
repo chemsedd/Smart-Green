@@ -18,16 +18,13 @@ def send_charts_data(data):
 #
 def consumer_kafka():
     #   start kafka Consumer to receive data from the raspberry pi
-    #
     #   Raspberry pi (producer) ====> Kafka (consumer) ====> Websocket
-    #
     topic = 'WeatherData'
     consumer = KafkaConsumer(topic, bootstrap_servers=['localhost:9092'])
+
     #   Start websocket
-    #
     #   Websocket ====> front end
-    #
-    start_websocket(updateCharts)
+    # start_websocket(updateCharts)
 
     print('Kafka Consumer started... ✔')
     print('---------------------------')

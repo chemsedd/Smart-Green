@@ -12,7 +12,7 @@
     /**
      * Create Temperature chart
      */
-    function createTempChart(data) {
+    function createTempChart() {
         var tempCanvas = document.getElementById('tempCanvas').getContext('2d');
 
         return new Chart(tempCanvas, {
@@ -22,7 +22,7 @@
                 datasets: [{
                     label: 'Temperature',
                     data: [],
-                    backgroundColor: 'rgba(10, 200, 200, 0.7)',
+                    backgroundColor: 'rgba(229, 117, 25, 1)',
                     borderWidth: 3,
                 }, ],
             },

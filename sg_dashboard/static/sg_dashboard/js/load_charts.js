@@ -2,39 +2,19 @@
 var charts = {};
 
 $(function () {
-    // DATA url
-    var endpoint = 'data';
 
-    /**
-     * Create charts on the dashboard
-     */
-    $.ajax({
-        method: 'GET',
-        url: endpoint,
-        success: function (data) {
-            //  Temperature chart
-            tempdata = data.temperature;
-            charts.tempChart = createTempChart(tempdata);
+    //  Temperature chart
+    charts.tempChart = createTempChart();
 
-            // Humidity chart
-            humdata = data.humidity;
-            charts.humdChart = createHumdChart(humdata);
+    // Humidity chart
+    charts.humdChart = createHumdChart();
 
-            // Crop yieds chart
-            cropsdata = data.crops;
-            charts.cropsChart = createCropsChart(cropsdata);
+    // Soil moisture chart
+    charts.moistureChart = createMoistureChart();
 
-            // Soil moisture chart
-            moisturedata = data.moisture;
-            charts.moistureChart = createMoistureChart(moisturedata);
+    // Start websocket (Dashboard <-> Server)
+    open_socket();
 
-            // Start websocket (Dashboard <-> Server)
-            open_socket();
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
 
     /*
      * Open Websocket with the Server
@@ -73,4 +53,4 @@ $(function () {
             console.log('----------------------------------\n');
         }
     }
-})
+});
