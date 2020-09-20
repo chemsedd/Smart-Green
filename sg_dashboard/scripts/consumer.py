@@ -38,4 +38,4 @@ def consumer_kafka():
             print(f'{k} --> {v}')
         print('-' * 30)
         # send data to front end to update charts
-        send_charts_data(data)
+        # send_charts_data(data)

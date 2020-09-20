@@ -7,11 +7,12 @@ producer = KafkaProducer(
 
 while True:
     data = {
-        'Temperature': 23,
-        'Humidity': 40,
-        'Pressure': 20,
+        'temperature': 23,
+        'humidity': 40,
+        'moisture': 20,
         'pH': 6,
     }
     producer.send('WeatherData', data)
     producer.flush()
+    print('sent...\n')
     sleep(5)

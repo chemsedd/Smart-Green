@@ -3,6 +3,9 @@ import websockets
 import json
 
 
+data = None
+
+
 #
 #   Send data to the client side to update charts
 #   Data is sent through websockets.
