@@ -8,6 +8,7 @@ from tensorflow.keras.models import load_model
 from .scripts.prediction_model import make_prediction
 from .forms import LandSuitabilityForm
 import threading
+#from .scripts.websocket.websocket import updateCharts
 
 
 #

@@ -10,7 +10,6 @@ while True:
         'temperature': 23,
         'humidity': 40,
         'moisture': 20,
-        'pH': 6,
     }
     producer.send('WeatherData', data)
     producer.flush()

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
@@ -26,3 +27,5 @@ urlpatterns = [
 
 # Error handling
 handler404 = 'sg_home.views.not_found'
+
+urlpatterns += staticfiles_urlpatterns()

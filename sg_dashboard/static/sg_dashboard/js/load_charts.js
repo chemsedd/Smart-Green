@@ -1,7 +1,7 @@
 // All charts of the dashboard
 var charts = {};
 
-$(function () {
+$(async function () {
 
     //  Temperature chart
     charts.tempChart = createTempChart();
@@ -15,6 +15,19 @@ $(function () {
     // Start websocket (Dashboard <-> Server)
     open_socket();
 
+    for (let i = 0; i < 3; i++) {
+        ws.send('send_data');
+        await sleep(5000);
+    }
+
+    /**
+     * 
+     * @param {*} ms 
+     */
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
 
     /*
      * Open Websocket with the Server
@@ -27,7 +40,7 @@ $(function () {
         var SERVER = 'localhost';
 
         // Server port
-        var PORT = '5000';
+        var PORT = '8000';
 
         // Websocket connected to the server
         var ws = new WebSocket("ws://" + SERVER + ":" + PORT);

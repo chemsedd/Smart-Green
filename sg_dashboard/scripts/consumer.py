@@ -7,12 +7,7 @@
 
 from kafka import KafkaConsumer
 from json import loads
-from .websocket.websocket import start_websocket, updateCharts
-
-
-#
-def send_charts_data(data):
-    pass
+#from .websocket.websocket import new_data, start_websocket
 
 
 #
@@ -22,10 +17,6 @@ def consumer_kafka():
     topic = 'WeatherData'
     consumer = KafkaConsumer(topic, bootstrap_servers=['localhost:9092'])
 
-    #   Start websocket
-    #   Websocket ====> front end
-    # start_websocket(updateCharts)
-
     print('Kafka Consumer started... ✔')
     print('---------------------------')
     # receiving messages from producer
@@ -34,5 +25,4 @@ def consumer_kafka():
         for k, v in data.items():
             print(f'{k} --> {v}')
         print('-' * 30)
-        # send data to front end to update charts
-        # send_charts_data(data)
+        new_data = data

@@ -1,3 +1,6 @@
+from json import dumps
+
+
 async def websocket_application(scope, receive, send):
     while True:
         event = await receive()
@@ -11,8 +14,13 @@ async def websocket_application(scope, receive, send):
             break
         # Client sending a message
         elif event['type'] == 'websocket.receive':
-            if event['text'] == 'ping':
+            if event['text'] == 'send_data':
+                data = {
+                    'temperature': 23,
+                    'humidity': 80,
+                    'moisture': 50
+                }
                 await send({
                     'type': 'websocket.send',
-                    'text': 'pong!',
+                    'text': dumps(data)
                 })
