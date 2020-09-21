@@ -62,9 +62,9 @@
     /**
      * Update Humidity chart
      */
-    function updateHumidity(value) {
-        charts.humdChart.data.labels.push("Test");
-        charts.humdChart.data.datasets[0].data.push(value);
+    function updateHumidity(data) {
+        charts.humdChart.data.labels.push(data.date);
+        charts.humdChart.data.datasets[0].data.push(data.value);
         charts.humdChart.update();
     }
 </script>

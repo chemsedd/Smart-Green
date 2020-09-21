@@ -43,9 +43,9 @@
     /**
      * Update Temperature chart
      */
-    function updateTemperature(value) {
-        charts.tempChart.data.labels.push("Test");
-        charts.tempChart.data.datasets[0].data.push(value);
+    function updateTemperature(data) {
+        charts.tempChart.data.labels.push(data.date);
+        charts.tempChart.data.datasets[0].data.push(data.value);
         charts.tempChart.update();
     }
 </script>

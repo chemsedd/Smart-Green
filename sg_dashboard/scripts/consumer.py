@@ -10,7 +10,7 @@ from json import loads
 #from .websocket.websocket import new_data, start_websocket
 
 
-#
+# Creates a consumer and returns it
 def consumer_kafka():
     #   start kafka Consumer to receive data from the raspberry pi
     #   Raspberry pi (producer) ====> Kafka (consumer) ====> Websocket
@@ -19,10 +19,12 @@ def consumer_kafka():
 
     print('Kafka Consumer started... ✔')
     print('---------------------------')
+
+    return consumer
+
+# Starts listening to producer (raspberry pi)
+
+
+def listen_producer(consumer):
     # receiving messages from producer
-    for message in consumer:
-        data: dict = loads(message.value)
-        for k, v in data.items():
-            print(f'{k} --> {v}')
-        print('-' * 30)
-        new_data = data
+    pass

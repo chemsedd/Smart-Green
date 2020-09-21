@@ -1,7 +1,7 @@
 // All charts of the dashboard
 var charts = {};
 
-$(async function () {
+$(function () {
 
     //  Temperature chart
     charts.tempChart = createTempChart();
@@ -15,10 +15,7 @@ $(async function () {
     // Start websocket (Dashboard <-> Server)
     open_socket();
 
-    for (let i = 0; i < 3; i++) {
-        ws.send('send_data');
-        await sleep(5000);
-    }
+
 
     /**
      * 

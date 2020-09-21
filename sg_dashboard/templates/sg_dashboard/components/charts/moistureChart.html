@@ -45,9 +45,9 @@
     /**
      * Update Soil Moisture chart
      */
-    function updateMoisture(value) {
-        charts.moistureChart.data.labels.push("Test");
-        charts.moistureChart.data.datasets[0].data.push(value);
+    function updateMoisture(data) {
+        charts.moistureChart.data.labels.push(data.date);
+        charts.moistureChart.data.datasets[0].data.push(data.value);
         charts.moistureChart.update();
     }
 </script>

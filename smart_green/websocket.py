@@ -1,4 +1,6 @@
-from json import dumps
+from sg_dashboard.scripts.consumer import consumer_kafka
+from json import loads, dumps
+import asyncio
 
 
 async def websocket_application(scope, receive, send):
@@ -9,18 +11,26 @@ async def websocket_application(scope, receive, send):
             await send({
                 'type': 'websocket.accept'
             })
+            # Create kafka consumer
+            consumer = consumer_kafka()
+            # listening to producer
+            for message in consumer:
+                data: dict = loads(message.value)
+                for k, v in data.items():
+                    print(f'{k} --> {v}')
+                print('-' * 30)
+                # send data to update charts
+                await send({
+                    'type': 'websocket.send',
+                    'text': dumps(data)
+                })
         # Client disconnecting
         elif event['type'] == 'websocket.disconnect':
             break
         # Client sending a message
         elif event['type'] == 'websocket.receive':
             if event['text'] == 'send_data':
-                data = {
-                    'temperature': 23,
-                    'humidity': 80,
-                    'moisture': 50
-                }
                 await send({
                     'type': 'websocket.send',
-                    'text': dumps(data)
+                    'text': 'pong!!!!'
                 })
