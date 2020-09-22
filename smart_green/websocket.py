@@ -21,9 +21,7 @@ async def websocket_application(scope, receive, send):
     from sg_dashboard.models import Daily_real_time
     while True:
         # listen to websocket
-        print('blocking here...\n')
         event = await receive()
-        print('after blocking ...\n')
         # Client disconnecting
         if event['type'] == 'websocket.disconnect':
             break

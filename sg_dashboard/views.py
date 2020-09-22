@@ -14,7 +14,7 @@ import threading
 @login_required
 def index(request):
     # added new feautre
-    nbr_pics = range(1, 8)
+    nbr_pics = range(1, 14)
     return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard', 'nbr_pics': nbr_pics})
 
 
