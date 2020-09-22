@@ -29,12 +29,13 @@
             },
             options: {
                 scales: {
-                    yAxes: {
+                    yAxes: [{
                         ticks: {
                             min: 0,
                             max: 70,
+                            stepSize: 1
                         },
-                    }
+                    }]
                 }
             }
         });
@@ -65,6 +66,10 @@
     function updateHumidity(data) {
         charts.humdChart.data.labels.push(data.date);
         charts.humdChart.data.datasets[0].data.push(data.value);
+        if (charts.humdChart.data.datasets[0].data.length > 20) {
+            charts.humdChart.data.datasets[0].data.shift();
+            charts.humdChart.data.labels.shift();
+        }
         charts.humdChart.update();
     }
 </script>

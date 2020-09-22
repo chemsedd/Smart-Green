@@ -28,12 +28,13 @@
             },
             options: {
                 scales: {
-                    yAxes: {
+                    yAxes: [{
                         ticks: {
                             min: 0,
                             max: 70,
+                            stepSize: 1
                         },
-                    }
+                    }]
                 }
             }
         });
@@ -46,6 +47,10 @@
     function updateTemperature(data) {
         charts.tempChart.data.labels.push(data.date);
         charts.tempChart.data.datasets[0].data.push(data.value);
+        if (charts.tempChart.data.datasets[0].data.length > 20) {
+            charts.tempChart.data.datasets[0].data.shift();
+            charts.tempChart.data.labels.shift();
+        }
         charts.tempChart.update();
     }
 </script>

@@ -12,20 +12,8 @@ $(function () {
     // Soil moisture chart
     charts.moistureChart = createMoistureChart();
 
-    // Start websocket (Dashboard <-> Server)
-    open_socket();
 
-
-
-    /**
-     * 
-     * @param {*} ms 
-     */
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-
+    var ws = null;
     /*
      * Open Websocket with the Server
      * to recieve updates
@@ -40,7 +28,7 @@ $(function () {
         var PORT = '8000';
 
         // Websocket connected to the server
-        var ws = new WebSocket("ws://" + SERVER + ":" + PORT);
+        ws = new WebSocket("ws://" + SERVER + ":" + PORT);
 
         ws.onopen = function (event) {
             console.log('----------------------------------\n');
@@ -48,13 +36,15 @@ $(function () {
             console.log('----------------------------------\n');
         }
 
-
         ws.onmessage = function (event) {
-            var data = JSON.parse(event.data)
-            console.log(data);
-            updateTemperature(data.temperature);
-            updateHumidity(data.humidity);
-            updateMoisture(data.moisture);
+            if (event.data != "start!") {
+                var data = JSON.parse(event.data)
+                console.log(data);
+                updateTemperature(data.temperature);
+                updateHumidity(data.humidity);
+                updateMoisture(data.moisture);
+            }
+            ws.send('next');
         }
 
         ws.onclose = function (event) {
@@ -63,4 +53,14 @@ $(function () {
             console.log('----------------------------------\n');
         }
     }
+    $('#start_streaming').click(open_socket);
+
+    /**
+     * 
+     */
+    function close_socket() {
+        if (ws != null)
+            ws.close();
+    }
+    $('#stop_streaming').click(close_socket);
 });
