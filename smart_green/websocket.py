@@ -4,6 +4,8 @@ from asgiref.sync import sync_to_async
 
 
 async def websocket_application(scope, receive, send):
+    """Opens socket with the front-end and starts the kafka broker to recieve data from Raspberyy Pi.
+    """
     event = await receive()
     # Client is asking for connectiong
     if event['type'] == 'websocket.connect':
@@ -18,6 +20,8 @@ async def websocket_application(scope, receive, send):
         'type': 'websocket.send',
         'text': 'start!'
     })
+    # import Daily_real_time model of the database
+    # to store recieved values
     from sg_dashboard.models import Daily_real_time
     while True:
         # listen to websocket

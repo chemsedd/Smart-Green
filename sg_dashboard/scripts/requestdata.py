@@ -10,6 +10,15 @@ months = ['January', 'February', 'March', 'April', 'May', 'June',
 
 # Return the data of the selected month-year
 def get_month_records(year, month: str):
+    """Returns the data of the selected month-year
+
+    Args:
+        year (int): Year (2009 - 2019)
+        month (str): Month (Janvuary - December)
+
+    Returns:
+        dict: A dict that contains data retrieved from the database
+    """
     # Retrieve data from the DATABASE
     records = Daily_records.objects.filter(
         year=year, month=month)

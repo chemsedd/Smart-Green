@@ -7,7 +7,6 @@
 
 from kafka import KafkaConsumer
 from json import loads
-#from .websocket.websocket import new_data, start_websocket
 
 
 # Creates a consumer and returns it
@@ -21,10 +20,3 @@ def consumer_kafka():
     print('---------------------------')
 
     return consumer
-
-# Starts listening to producer (raspberry pi)
-
-
-def listen_producer(consumer):
-    # receiving messages from producer
-    pass
