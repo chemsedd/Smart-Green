@@ -8,6 +8,7 @@ Smart Green is a web application that provides real time monitoring of farming f
 
 - **Python 3.8**: We used [Python](https://www.python.org) for creating the app and the deep learning model (LSTM).
 - **Django**: the app was developed using [Django](hhttps://www.djangoproject.com/), which is a python based framework.
+- **Uvicorn**: [Uvicorn](https://www.uvicorn.org/) is a lightning-fast ASGI server implementation, we used it as our backend server to handle the coming data from Raspberry pi.
 - **Chart.js**: For creating plots and charts, we used the [Chart.js](https://www.chartjs.org/)
 
 ## Run
