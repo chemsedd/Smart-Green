@@ -18,6 +18,10 @@ Download Bootstrap 4 and Font Awesome and place them under the `sg_home\static\`
 
 #### Download required libraries
 
+```bash
+    pip install pandas tensorflow django uvicorn kafka-python
+```
+
 #### Run application through Uvicorn backend server
 
 ```bash
