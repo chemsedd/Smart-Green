@@ -1,8 +1,6 @@
 import pandas as pd
 from ..models import Monthly_records_stats
 
-#df = pd.read_csv('D:\works\master-2\smart_green\sg_dashboard\scripts\\all-data.csv')
-
 
 def get_describe(df):
     res = pd.DataFrame()

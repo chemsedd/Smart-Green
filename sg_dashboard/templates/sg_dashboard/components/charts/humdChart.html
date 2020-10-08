@@ -12,7 +12,7 @@
     /**
      * Create Humidity chart
      */
-    function createHumdChart(data) {
+    function createHumdChart() {
 
         var humdCanvas = document.getElementById('humdCanvas').getContext('2d');
 
@@ -23,18 +23,19 @@
                 datasets: [{
                     label: 'Relative Humidity',
                     data: [],
-                    backgroundColor: createColors(data.data),
+                    backgroundColor: 'rgba(10, 200, 200, 0.7)',
                     borderWidth: 3,
                 }]
             },
             options: {
                 scales: {
-                    yAxes: {
+                    yAxes: [{
                         ticks: {
                             min: 0,
                             max: 70,
+                            stepSize: 1
                         },
-                    }
+                    }]
                 }
             }
         });
@@ -62,9 +63,13 @@
     /**
      * Update Humidity chart
      */
-    function updateHumidity(value) {
-        charts.humdChart.data.labels.push("Test");
-        charts.humdChart.data.datasets[0].data.push(value);
+    function updateHumidity(data) {
+        charts.humdChart.data.labels.push(data.date);
+        charts.humdChart.data.datasets[0].data.push(data.value);
+        if (charts.humdChart.data.datasets[0].data.length > 20) {
+            charts.humdChart.data.datasets[0].data.shift();
+            charts.humdChart.data.labels.shift();
+        }
         charts.humdChart.update();
     }
 </script>

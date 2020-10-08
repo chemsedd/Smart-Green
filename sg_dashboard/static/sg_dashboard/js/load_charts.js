@@ -2,40 +2,18 @@
 var charts = {};
 
 $(function () {
-    // DATA url
-    var endpoint = 'data';
 
-    /**
-     * Create charts on the dashboard
-     */
-    $.ajax({
-        method: 'GET',
-        url: endpoint,
-        success: function (data) {
-            //  Temperature chart
-            tempdata = data.temperature;
-            charts.tempChart = createTempChart(tempdata);
+    //  Temperature chart
+    charts.tempChart = createTempChart();
 
-            // Humidity chart
-            humdata = data.humidity;
-            charts.humdChart = createHumdChart(humdata);
+    // Humidity chart
+    charts.humdChart = createHumdChart();
 
-            // Crop yieds chart
-            cropsdata = data.crops;
-            charts.cropsChart = createCropsChart(cropsdata);
+    // Soil moisture chart
+    charts.moistureChart = createMoistureChart();
 
-            // Soil moisture chart
-            moisturedata = data.moisture;
-            charts.moistureChart = createMoistureChart(moisturedata);
 
-            // Start websocket (Dashboard <-> Server)
-            open_socket();
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
-
+    var ws = null;
     /*
      * Open Websocket with the Server
      * to recieve updates
@@ -47,10 +25,10 @@ $(function () {
         var SERVER = 'localhost';
 
         // Server port
-        var PORT = '5000';
+        var PORT = '8000';
 
         // Websocket connected to the server
-        var ws = new WebSocket("ws://" + SERVER + ":" + PORT);
+        ws = new WebSocket("ws://" + SERVER + ":" + PORT);
 
         ws.onopen = function (event) {
             console.log('----------------------------------\n');
@@ -58,13 +36,15 @@ $(function () {
             console.log('----------------------------------\n');
         }
 
-
         ws.onmessage = function (event) {
-            var data = JSON.parse(event.data)
-            console.log(data);
-            updateTemperature(data.temperature);
-            updateHumidity(data.humidity);
-            updateMoisture(data.moisture);
+            if (event.data != "start!") {
+                var data = JSON.parse(event.data)
+                console.log(data);
+                updateTemperature(data.temperature);
+                updateHumidity(data.humidity);
+                updateMoisture(data.moisture);
+            }
+            ws.send('next');
         }
 
         ws.onclose = function (event) {
@@ -73,4 +53,14 @@ $(function () {
             console.log('----------------------------------\n');
         }
     }
-})
+    $('#start_streaming').click(open_socket);
+
+    /**
+     * 
+     */
+    function close_socket() {
+        if (ws != null)
+            ws.close();
+    }
+    $('#stop_streaming').click(close_socket);
+});

@@ -1,8 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Temperature
-from .scripts.consumer import consumer_kafka
 from .scripts.requestdata import get_data, get_month_records
 from tensorflow.keras.models import load_model
 from .scripts.prediction_model import make_prediction
@@ -15,11 +13,8 @@ import threading
 #
 @login_required
 def index(request):
-    # start kafka thread for receiving data
-    # kafka_thread = threading.Thread(target=consumer_kafka)
-    # kafka_thread.start()
     # added new feautre
-    nbr_pics = range(1, 8)
+    nbr_pics = range(1, 14)
     return render(request, 'sg_dashboard/index.html', {'title': 'Dashboard', 'nbr_pics': nbr_pics})
 
 

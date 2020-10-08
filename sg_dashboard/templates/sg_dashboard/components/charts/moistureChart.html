@@ -12,7 +12,7 @@
     /**
      * Create Soil moisture chart
      */
-    function createMoistureChart(data) {
+    function createMoistureChart() {
 
         var moistureCanvas = document.getElementById('moistureCanvas').getContext('2d');
 
@@ -21,20 +21,21 @@
             data: {
                 labels: [],
                 datasets: [{
-                    label: data.datalabel,
+                    label: 'Soil moisture',
                     data: [],
-                    //backgroundColor: bgcolor,
+                    backgroundColor: 'rgba(137, 29, 209, 0.7)',
                     borderWidth: 3,
                 }]
             },
             options: {
                 scales: {
-                    yAxes: {
+                    yAxes: [{
                         ticks: {
                             min: 0,
-                            max: 70,
+                            max: 100,
+                            stepSize: 1,
                         },
-                    }
+                    }]
                 }
             }
         });
@@ -45,9 +46,13 @@
     /**
      * Update Soil Moisture chart
      */
-    function updateMoisture(value) {
-        charts.moistureChart.data.labels.push("Test");
-        charts.moistureChart.data.datasets[0].data.push(value);
+    function updateMoisture(data) {
+        charts.moistureChart.data.labels.push(data.date);
+        charts.moistureChart.data.datasets[0].data.push(data.value);
+        if (charts.moistureChart.data.datasets[0].data.length > 20) {
+            charts.moistureChart.data.datasets[0].data.shift();
+            charts.moistureChart.data.labels.shift();
+        }
         charts.moistureChart.update();
     }
 </script>

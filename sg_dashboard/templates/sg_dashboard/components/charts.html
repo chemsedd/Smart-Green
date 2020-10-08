@@ -22,12 +22,12 @@
         {% include './charts/chartReport.html' with title='Humidity report' report='' %}
     </div>
     <!-- Pressure chart -->
-    <div class="col-md-8 my-3">
+    {% comment %} <div class="col-md-8 my-3">
         {% include './charts/pressureChart.html' %}
     </div>
     <div class="col-md-4 my-3">
         {% include './charts/chartReport.html' with title='Pressure report' report='' %}
-    </div>
+    </div> {% endcomment %}
     <!-- ############ Soil and crops section ############ -->
     <div class="col-md-12 w-100"></div>
     <div class="col-md-8 mt-4">
@@ -37,13 +37,14 @@
         <hr>
     </div>
     <div class="col w-100"></div>
-
+    <!-- Soil moisture chart -->
     <div class="col-md-8 my-3">
         {% include './charts/moistureChart.html' %}
     </div>
     <div class="col-md-4 my-3">
         {% include './charts/chartReport.html' with title='Moisture report' report='' %}
     </div>
+    <!-- Crops yields chart -->
     <div class="col-md-8 my-3">
         {% include './charts/cropsChart.html' %}
     </div>
@@ -52,9 +53,10 @@
     </div>
 
 </div>
-<div class="row">
+<!-- Biskra map -->
+{% comment %} <div class="row">
     <div class="col-md-12 my-3">
         {% include './charts/biskraMap.html' %}
     </div>
-</div>
+</div> {% endcomment %}
 <hr>
