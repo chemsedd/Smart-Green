@@ -32,47 +32,8 @@ def get_month_records(year, month: str):
             'month': month,
             'year': year,
         },
-        'Days': [],
+        'Days': [rec for rec in records.values()],
         'Stats': stats
     }
-    for rec in records.values():
-        results['Days'].append(rec)
+
     return results
-
-
-# Get DATA api
-a = 0.8
-
-
-def get_data():
-    data = {
-        'temperature': {
-            'datalabel': 'Temperature °C',
-        },
-        'humidity': {
-            'datalabel': 'Humidity %',
-            'bgcolors':
-                f'rgba(33, 150, 243, {a})',
-
-
-        },
-        'moisture': {
-            'datalabel': 'Soil Moisture %',
-            'bgcolors':
-                f'rgba(33, 150, 243, {a})',
-
-
-        },
-        'crops': {
-            'labels': ['Tomato', 'Potato', 'Eggplant', 'Seeds'],
-            'datalabel': 'Production %',
-            'data': [randint(0, 100) for _ in range(4)],
-            'bgcolors': [
-                f'rgba(224, 53, 53, {a})',
-                f'rgba(44, 141, 221, {a})',
-                f'rgba(22, 221, 98, {a})',
-                f'rgba(233, 239, 47, {a})'
-            ]
-        },
-    }
-    return data

@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from django.shortcuts import render
 from .scripts.requestdata import get_data, get_month_records
 from tensorflow.keras.models import load_model
@@ -37,10 +39,11 @@ def historical(request, year, month):
 #
 # Get data from the database about the month and the year and provide it for API requests
 #
+@api_view(['GET'])
 def historical_api(reques, year, month):
     month_ = month.capitalize()
     results = get_month_records(year, month_)
-    return JsonResponse(results)
+    return Response(results)
 
 
 PATH = 'D:\works\master-2\smart_green\sg_dashboard\scripts\lstm_model'

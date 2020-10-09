@@ -8,4 +8,7 @@
 **/font-awesome/
 
 #
+*.rar
+
+#
 **/__pycache__/
