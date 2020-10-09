@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.shortcuts import render
-from .scripts.requestdata import get_data, get_month_records
+from .scripts.requestdata import get_month_records
 from tensorflow.keras.models import load_model
 from .scripts.prediction_model import make_prediction
 from .forms import LandSuitabilityForm

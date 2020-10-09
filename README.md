@@ -38,7 +38,7 @@ uvicorn smart_green.asgi:application
 
 ## Real time data visualization
 
-![SmartGreen real time data visualization](screenshots/Dashboard-rt.png)
+![SmartGreen real time data visualization](screenshots/Dashboard-rt.jpg)
 
 ## Historical data visualization
 
