@@ -2,7 +2,7 @@
 ![](https://img.shields.io/github/issues/chemsedd/smart_green?style=for-the-badge)
 ![](https://img.shields.io/github/stars/chemsedd/smart_green?style=for-the-badge)
 ![](https://img.shields.io/tokei/lines/github/chemsedd/smart_green?style=for-the-badge)
-
+![](https://img.shields.io/github/repo-size/chemsedd/smart_green?style=for-the-badge)
 # Smart Green
 
 ## Introduction
