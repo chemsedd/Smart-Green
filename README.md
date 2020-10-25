@@ -1,3 +1,4 @@
+![](https://img.shields.io/github/issues/chemsedd/smart_green?style=for-the-badge)
 # Smart Green
 
 ## Introduction
