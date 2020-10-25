@@ -51,3 +51,6 @@ uvicorn smart_green.asgi:application
 ## Land Suitability prediction
 
 ![SmartGreen Land Suitability Prediction](screenshots/dashboard-land-suitability.png)
+
+----------
+**Main author:** [Chems Eddine Senoussi](https://github.com/chemsedd)
