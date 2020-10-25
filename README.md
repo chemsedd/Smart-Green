@@ -1,8 +1,9 @@
-![](https://img.shields.io/badge/author-chemsedd-dd0000?style=for-the-badge)
-![](https://img.shields.io/github/issues/chemsedd/smart_green?style=for-the-badge)
-![](https://img.shields.io/github/stars/chemsedd/smart_green?style=for-the-badge)
-![](https://img.shields.io/tokei/lines/github/chemsedd/smart_green?style=for-the-badge)
-![](https://img.shields.io/github/repo-size/chemsedd/smart_green?style=for-the-badge)
+![Author](https://img.shields.io/badge/author-chemsedd-dd0000?style=for-the-badge)
+![Open_Issues](https://img.shields.io/github/issues/chemsedd/smart_green?style=for-the-badge)
+![Start](https://img.shields.io/github/stars/chemsedd/smart_green?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/chemsedd/smart_green?style=for-the-badge)
+![Lines_of_Code](https://img.shields.io/tokei/lines/github/chemsedd/smart_green?style=for-the-badge)
+![Repo_Size](https://img.shields.io/github/repo-size/chemsedd/smart_green?style=for-the-badge)
 # Smart Green
 
 ## Introduction
